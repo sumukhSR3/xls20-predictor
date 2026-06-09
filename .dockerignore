@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .dockerignore — XLS-20 NFT Price Predictor Agent
+# Excludes everything that is not needed by the builder stage.
+# Keeps the Docker build context small and prevents secrets/dev artefacts
+# from leaking into the image layer cache.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Build output ──────────────────────────────────────────────────────────────
+build/
+.cache/
+
+# ── Dev tooling ───────────────────────────────────────────────────────────────
+.git/
+.gitignore
+.clang-format
+.clangd
+compile_commands.json
+
+# ── Test / CI artefacts ───────────────────────────────────────────────────────
+scripts/
+*.log
+*.tmp
+
+# ── Data (stateful — mount as a volume at runtime) ───────────────────────────
+# The empty seed historical_cache.json is the only exception; it is copied
+# explicitly in the Dockerfile COPY instruction.
+# (Keep the data directory pattern here so live cache files never end up baked in.)
+data/*.json.bak
+data/*.json.old
+
+# ── OS debris ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ── IDE settings ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace

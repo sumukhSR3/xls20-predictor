@@ -1,0 +1,49 @@
+{
+  "websocket": {
+    "host": "xrplcluster.com",
+    "port": "443",
+    "path": "/",
+    "reconnect_delay_ms": 2000,
+    "max_reconnect_delay_ms": 30000
+  },
+  "forecasting": {
+    "alpha": 0.3,
+    "beta": 0.1,
+    "gamma": 0.2,
+    "period": 24,
+    "min_data_points": 10,
+    "bucket_duration_seconds": 3600,
+    "forecast_horizon": 24
+  },
+  "output": {
+    "refresh_interval_seconds": 60,
+    "sparkline_bars": 20,
+    "show_ansi_colors": true
+  },
+  "phase5": {
+    "_comment": "Phase 5: Multi-source ingestion & async webhook alerting.",
+    "webhook_url": "",
+    "api_baseline_url": "",
+    "baseline_timeout_s": 10
+  },
+  "collections": [
+    {
+      "name": "XPunks",
+      "issuer": "rXPunKsExampleIssuerAddressHere1",
+      "taxon": 0,
+      "description": "XPunks — XRPL's premier generative PFP collection"
+    },
+    {
+      "name": "Bored Apes XRPL",
+      "issuer": "rBoredApeExampleIssuerAddress12",
+      "taxon": 1,
+      "description": "Bored Ape Yacht Club bridged to XRP Ledger"
+    },
+    {
+      "name": "xSPECTAR",
+      "issuer": "rXSpectrumExampleIssuerAddress1",
+      "taxon": 0,
+      "description": "xSPECTAR Metaverse NFT collection on XRPL"
+    }
+  ]
+}
